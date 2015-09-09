@@ -1,0 +1,15 @@
+{
+  "name": "y",
+  "version": "0.0.1",
+  "description": "Manipulate Youtube subtitles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joe Gesualdo",
+  "license": "MIT",
+  "dependencies": {
+    "https": "^1.0.0",
+    "xml2js": "^0.4.12"
+  }
+}
