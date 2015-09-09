@@ -2,12 +2,15 @@ var xml2js = require('xml2js');
 var parser = new xml2js.Parser();
 
 var YoutubeSubtitle = {
-  convertXmlToSubtitlesObject: convertXmlToSubtitlesObject
+  convertXmlToSubtitlesObject: convertXmlToSubtitlesObject,
+  getYoutubeUrl: getYoutubeUrl
 };
 
-function convertXmlToSubtitlesObject(xml, callback){
+function convertXmlToSubtitlesObject(title, id, xml, callback){
   subtitlesJSON = {
-    title: "",
+    title: title,
+    source: "youtube",
+    id: id,
     parts: []
   }
   parser.parseString(xml, function (err, result) {
@@ -44,6 +47,13 @@ function convertXmlToSubtitlesObject(xml, callback){
     }
     callback(null, subtitlesJSON);
   })
+}
+
+function getYoutubeUrl(part){
+  if(mediaObj["source"] != "youtube"){
+    throw new Error("media must be youtube");
+  }
+  return "https://www.youtube.com/v/"+part["id"] + "?start="+part["start"]+"&end="+(part["start"]+part["duration"]) +"&version=3"
 }
 
 module.exports = YoutubeSubtitle;

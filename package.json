@@ -1,6 +1,6 @@
 {
-  "name": "y",
-  "version": "0.0.1",
+  "name": "youtube-subtitles",
+  "version": "0.0.2",
   "description": "Manipulate Youtube subtitles",
   "main": "index.js",
   "scripts": {
