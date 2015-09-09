@@ -49,11 +49,11 @@ function convertXmlToSubtitlesObject(title, id, xml, callback){
   })
 }
 
-function getYoutubeUrl(part){
+function getYoutubeUrl(id, part){
   if(mediaObj["source"] != "youtube"){
     throw new Error("media must be youtube");
   }
-  return "https://www.youtube.com/v/"+part["id"] + "?start="+part["start"]+"&end="+(part["start"]+part["duration"]) +"&version=3"
+  return "https://www.youtube.com/v/"+ id + "?start="+part["start"]+"&end="+(part["start"]+part["duration"]) +"&version=3"
 }
 
 module.exports = YoutubeSubtitle;
